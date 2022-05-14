@@ -1,2 +1,2 @@
-# QC-CNN
-Quantum-classical hybrid convolutional neural network
+
+# Quantum-classical hybrid convolutional neural network

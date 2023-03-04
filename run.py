@@ -3,12 +3,12 @@ import torch.nn as nn
 from torch.utils.data import Subset
 from sklearn.model_selection import train_test_split
 from app.load_data import MyCSVDatasetReader as CSVDataset
-#from models.classical import Net
+from models.classical import Net
 #from models.single_encoding import Net
 #from models.multi_encoding import Net
 #from models.hybrid_layer import Net
 #from models.inception import Net
-from models.multi_noisy import Net
+#from models.multi_noisy import Net
 from app.train import train_network
 
 # load the dataset

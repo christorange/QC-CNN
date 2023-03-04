@@ -19,8 +19,22 @@ Directory structure:
 ```
 * Run `run.py`.
 * Edit console printing outputs in `train.py`.
-* Network structures are defined in the files in `model` directory. Select the model to be used in classification by importing it in `run.py`.
+* Network structures are defined in the files in `model` directory. Select the model to be used in classification by importing it in `run.py`. The default model is a classical CNN.
 * The default datasets files in `datasets` are csv format data of MNIST and FashionMNIST images subsampled to $14 \times 14$ size. Each dataset contains 3 types of images, 400 in each type, for example `fashion_012_1200.csv` means totally 1200 images with type 0,1,2 in FashionMNIST. The data loader for local datasets is `load_data.py` in `app`. 
+
+# Dependency (IMPORTANT❗️)
+Due to the upgration of PennyLane, models using multi-encoding method (multi_encoding.py & multi_noisy.py) cannot run under latest version of PennyLane. To run these two models, please use PennyLane v0.23.0, and downgrade `autoray` to 0.2.5:
+```
+pip uninstall autoray
+pip install autoray==0.2.5
+```
+If you are using MacOS, install jax with  `conda install jax -c conda-forge`.
+
+This problem is due to this line of code:
+```
+exec('qml.{}({}, wires = {})'.format(encoding_gates[i], inputs[qub * var_per_qubit + i], qub))
+```
+For now I'm not fixing this problem since I'm not actively working on PennyLane, if you are familiar with latest version of PennyLane **you are very welcomed to commit to this project :)**
 
 # Model introduction
 
